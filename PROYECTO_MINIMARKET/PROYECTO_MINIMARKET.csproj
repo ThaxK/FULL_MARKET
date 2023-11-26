@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6CFAD6B5-A00C-4B28-AB85-F11C69D2FC2F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PROYECTO_MINIMARKET</RootNamespace>
+    <AssemblyName>PROYECTO_MINIMARKET</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegistrarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegistrarVenta.Designer.cs">
+      <DependentUpon>FormRegistrarVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromActualizarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromActualizarCategoria.Designer.cs">
+      <DependentUpon>FromActualizarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromActualizarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromActualizarCliente.Designer.cs">
+      <DependentUpon>FromActualizarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromActualizarProduccto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromActualizarProduccto.Designer.cs">
+      <DependentUpon>FromActualizarProduccto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromActualizarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromActualizarProveedor.Designer.cs">
+      <DependentUpon>FromActualizarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromConsultarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromConsultarEmpleado.Designer.cs">
+      <DependentUpon>FromConsultarEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromConsultarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromConsultarProducto.Designer.cs">
+      <DependentUpon>FromConsultarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromConsultarProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromConsultarProveedores.Designer.cs">
+      <DependentUpon>FromConsultarProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromGenerarFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromGenerarFactura.Designer.cs">
+      <DependentUpon>FromGenerarFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromRegistrarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromRegistrarCategoria.Designer.cs">
+      <DependentUpon>FromRegistrarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromRegistrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromRegistrarCliente.Designer.cs">
+      <DependentUpon>FromRegistrarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromActualizarFullMarket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromActualizarFullMarket.Designer.cs">
+      <DependentUpon>FromActualizarFullMarket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromRegistrarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromRegistrarEmpleado.Designer.cs">
+      <DependentUpon>FromRegistrarEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromRegistrarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromRegistrarProducto.Designer.cs">
+      <DependentUpon>FromRegistrarProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromRegistrarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromRegistrarProveedor.Designer.cs">
+      <DependentUpon>FromRegistrarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegistrarVenta.resx">
+      <DependentUpon>FormRegistrarVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromActualizarCategoria.resx">
+      <DependentUpon>FromActualizarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromActualizarCliente.resx">
+      <DependentUpon>FromActualizarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromActualizarProduccto.resx">
+      <DependentUpon>FromActualizarProduccto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromActualizarProveedor.resx">
+      <DependentUpon>FromActualizarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromConsultarEmpleado.resx">
+      <DependentUpon>FromConsultarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromConsultarProducto.resx">
+      <DependentUpon>FromConsultarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromConsultarProveedores.resx">
+      <DependentUpon>FromConsultarProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromGenerarFactura.resx">
+      <DependentUpon>FromGenerarFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromRegistrarCategoria.resx">
+      <DependentUpon>FromRegistrarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromRegistrarCliente.resx">
+      <DependentUpon>FromRegistrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromActualizarFullMarket.resx">
+      <DependentUpon>FromActualizarFullMarket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromRegistrarEmpleado.resx">
+      <DependentUpon>FromRegistrarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromRegistrarProducto.resx">
+      <DependentUpon>FromRegistrarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromRegistrarProveedor.resx">
+      <DependentUpon>FromRegistrarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CL_capaNegocios\CL_Capa_Negocios.csproj">
+      <Project>{7D563ACA-48F2-4223-926E-894E9EA7AC8B}</Project>
+      <Name>CL_Capa_Negocios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CL_capa_entidades\CL_Capa_Entidades.csproj">
+      <Project>{D22219C4-0B24-402E-B182-636F30BEF29F}</Project>
+      <Name>CL_Capa_Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\63007shoppingcart_109353.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
