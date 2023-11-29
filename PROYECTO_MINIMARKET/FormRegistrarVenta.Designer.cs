@@ -48,8 +48,11 @@
             this.buttonCategoria = new System.Windows.Forms.Button();
             this.ComboCategoria = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonConfirmarVenta = new System.Windows.Forms.Button();
             this.buttonSalirCarritoCompras = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -254,23 +257,45 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.labelTotal);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.buttonConfirmarVenta);
             this.groupBox5.Controls.Add(this.buttonSalirCarritoCompras);
             this.groupBox5.Controls.Add(this.dataGridView2);
             this.groupBox5.Location = new System.Drawing.Point(12, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(775, 233);
+            this.groupBox5.Size = new System.Drawing.Size(775, 313);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Carrito de compras";
             // 
-            // dataGridView2
+            // labelTotal
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(2, 52);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(758, 163);
-            this.dataGridView2.TabIndex = 0;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(357, 226);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(25, 13);
+            this.labelTotal.TabIndex = 4;
+            this.labelTotal.Text = "------";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(308, 226);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Total:";
+            // 
+            // buttonConfirmarVenta
+            // 
+            this.buttonConfirmarVenta.Location = new System.Drawing.Point(348, 254);
+            this.buttonConfirmarVenta.Name = "buttonConfirmarVenta";
+            this.buttonConfirmarVenta.Size = new System.Drawing.Size(104, 40);
+            this.buttonConfirmarVenta.TabIndex = 2;
+            this.buttonConfirmarVenta.Text = "Confirmar venta";
+            this.buttonConfirmarVenta.UseVisualStyleBackColor = true;
+            this.buttonConfirmarVenta.Click += new System.EventHandler(this.buttonConfirmarVenta_Click);
             // 
             // buttonSalirCarritoCompras
             // 
@@ -283,6 +308,15 @@
             this.buttonSalirCarritoCompras.Text = "Volver";
             this.buttonSalirCarritoCompras.UseVisualStyleBackColor = false;
             this.buttonSalirCarritoCompras.Click += new System.EventHandler(this.buttonSalirCarritoCompras_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 52);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(763, 163);
+            this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // FormRegistrarVenta
             // 
@@ -302,6 +336,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
@@ -331,5 +366,8 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button buttonSalirCarritoCompras;
+        private System.Windows.Forms.Button buttonConfirmarVenta;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -99,10 +99,12 @@
     <Compile Include="DA_BASE.cs" />
     <Compile Include="DA_Categoria.cs" />
     <Compile Include="DA_Cliente.cs" />
+    <Compile Include="DA_DetalleVenta.cs" />
     <Compile Include="DA_Empleado.cs" />
     <Compile Include="DA_FullMarket.cs" />
     <Compile Include="DA_Producto.cs" />
     <Compile Include="DA_Proveedores.cs" />
+    <Compile Include="DA_Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

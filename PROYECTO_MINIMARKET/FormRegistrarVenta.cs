@@ -14,7 +14,7 @@ namespace PROYECTO_MINIMARKET
 {
     public partial class FormRegistrarVenta : Form
     {
-        int posicionDatagridview;
+        int posicionDatagridview, idProducto;
         DataTable CarritoCompras = new DataTable();
 
         public FormRegistrarVenta()
@@ -25,10 +25,12 @@ namespace PROYECTO_MINIMARKET
         private void FormRegistrarVenta_Load(object sender, EventArgs e)
         {
             //Crear carrito de compras
+            DataColumn columna0 = new DataColumn("idProducto");
             DataColumn columna1=new DataColumn("Producto");
             DataColumn columna2=new DataColumn("Precio Unidad");
             DataColumn columna3=new DataColumn("Cantidad");
             DataColumn columna4=new DataColumn("Subtotal");
+            CarritoCompras.Columns.Add(columna0);
             CarritoCompras.Columns.Add(columna1);
             CarritoCompras.Columns.Add(columna2);
             CarritoCompras.Columns.Add(columna3);
@@ -37,6 +39,10 @@ namespace PROYECTO_MINIMARKET
             DataGridViewButtonColumn botonEliminar = new DataGridViewButtonColumn();
             botonEliminar.Name = "Eliminar";
             botonEliminar.Text = "Eliminar";
+            dataGridView2.Columns.Add(botonEliminar);
+            dataGridView2.Columns[0].Visible = false;
+
+
 
             //Poner invisible el carrito de compras y la ventana de compra
             groupBox5.Visible = false;
@@ -64,6 +70,9 @@ namespace PROYECTO_MINIMARKET
             //Poner invisibles columnas
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;
+
+            //label en numeros enteros
+            labelTotal.Text = "0";
         }
 
         private void buttonCategoria_Click(object sender, EventArgs e)
@@ -85,6 +94,7 @@ namespace PROYECTO_MINIMARKET
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Comprar")
             {
                 posicionDatagridview = e.RowIndex;
+                idProducto = int.Parse(dataGridView1[1, e.RowIndex].Value.ToString());
                 groupBox4.Visible = true;
                 labelNombreProducto.Text = dataGridView1[3, e.RowIndex].Value.ToString();
                 labelPrecioProducto.Text = dataGridView1[4, e.RowIndex].Value.ToString();
@@ -111,18 +121,29 @@ namespace PROYECTO_MINIMARKET
         private void buttonAgregarCarrito_Click(object sender, EventArgs e)
         {
             DataRow fila = CarritoCompras.NewRow();
-            fila[0] = labelNombreProducto.Text;
-            fila[1] = labelPrecioProducto.Text;
-            fila[2] = textBoxCantidad.Text;
-            fila[3] = int.Parse(labelPrecioProducto.Text) * int.Parse(textBoxCantidad.Text);
+            fila[0] = idProducto;
+            fila[1] = labelNombreProducto.Text;
+            fila[2] = labelPrecioProducto.Text;
+            fila[3] = textBoxCantidad.Text;
+            fila[4] = int.Parse(labelPrecioProducto.Text) * int.Parse(textBoxCantidad.Text);
             CarritoCompras.Rows.Add(fila);
             dataGridView2.DataSource = CarritoCompras;
             groupBox4.Visible = false;
+
+            //Generar total
+            int subtotal = (int.Parse(labelPrecioProducto.Text) * int.Parse(textBoxCantidad.Text))+int.Parse(labelTotal.Text);
+            labelTotal.Text = subtotal+"";
+
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (dataGridView2.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                CarritoCompras.Rows[e.RowIndex].Delete();
+                labelTotal.Text= (int.Parse(labelTotal.Text) - int.Parse(dataGridView2[5, e.RowIndex].Value.ToString()))+"";
+                dataGridView2.DataSource = CarritoCompras;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -130,6 +151,11 @@ namespace PROYECTO_MINIMARKET
             groupBox5.Visible = true;
             groupBox1.Visible = false;
             groupBox4.Visible = false;
+
+        }
+
+        private void buttonConfirmarVenta_Click(object sender, EventArgs e)
+        {
 
         }
 
