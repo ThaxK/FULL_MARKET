@@ -16,6 +16,7 @@ namespace PROYECTO_MINIMARKET
 {
     public partial class FromActualizarCliente : Form
     {
+        int idCliente;
         public FromActualizarCliente()
         {
             InitializeComponent();
@@ -25,7 +26,8 @@ namespace PROYECTO_MINIMARKET
             if (dataGridView1.Columns[e.ColumnIndex].Name == "Actualizar")
             {
                 dataGridView1.Visible = false;
-                
+
+                idCliente = int.Parse(dataGridView1[1, e.RowIndex].Value.ToString());
                 NoDocumentoCli.Text = dataGridView1[2, e.RowIndex].Value.ToString();
                 NombreCli.Text = dataGridView1[4, e.RowIndex].Value.ToString();
                 ApellidoCli.Text = dataGridView1[5, e.RowIndex].Value.ToString();
@@ -84,6 +86,7 @@ namespace PROYECTO_MINIMARKET
             {
 
                 Cliente objCliente = new Cliente();
+                objCliente.id = idCliente;
                 objCliente.documento = NoDocumentoCli.Text;
                 objCliente.nombre = NombreCli.Text;
                 objCliente.apellido = ApellidoCli.Text;
@@ -99,6 +102,9 @@ namespace PROYECTO_MINIMARKET
                     {
                         MessageBox.Show("ERROR EN LA ACTUALIZACIÓN");
                     }
+                DataTable dt = new DataTable();
+                dt = CN_Cliente.ConsultarCliente();
+                dataGridView1.DataSource = dt;
                 dataGridView1.Visible = true;
             }
                 

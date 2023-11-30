@@ -137,5 +137,14 @@ namespace PROYECTO_MINIMARKET
             ObjFrm.Show();
             ObjFrm.WindowState = FormWindowState.Maximized;
         }
+
+        private void actualizarToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            FromActualizarCliente ObjFrm = new FromActualizarCliente();
+            ObjFrm.MdiParent = this;
+
+            ObjFrm.Show();
+            ObjFrm.WindowState = FormWindowState.Maximized;
+        }
     }
 }

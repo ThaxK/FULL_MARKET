@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxCli = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.CorreoCli = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.DireccionCli = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBoxCli.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +73,15 @@
             this.groupBoxCli.TabIndex = 2;
             this.groupBoxCli.TabStop = false;
             this.groupBoxCli.Text = "actualizarCliente";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(19, 32);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(732, 360);
+            this.dataGridView1.TabIndex = 32;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label4
             // 
@@ -133,6 +142,7 @@
             // 
             // NoDocumentoCli
             // 
+            this.NoDocumentoCli.Enabled = false;
             this.NoDocumentoCli.Location = new System.Drawing.Point(152, 65);
             this.NoDocumentoCli.Name = "NoDocumentoCli";
             this.NoDocumentoCli.Size = new System.Drawing.Size(185, 20);
@@ -203,15 +213,6 @@
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "NOMBRES:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 32);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(732, 360);
-            this.dataGridView1.TabIndex = 32;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // FromActualizarCliente
             // 

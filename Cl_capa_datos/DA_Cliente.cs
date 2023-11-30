@@ -28,11 +28,11 @@ namespace Cl_capa_datos
         {
             String codigo = "Select * from cliente";
 
-            return ConsultarEmpleado(codigo);
+            return ConsultarDatos(codigo);
         }
         public static bool ActualizarCliente(Cliente objCliente)
         {
-            string codigo = "UPDATE cliente set identificacion='" + objCliente.documento + "',nombres='" + objCliente.nombre + "',apellidos='" + objCliente.apellido + "',correo='" + objCliente.correo + "',telefono='" + objCliente.telefono + "' where idCliente=" + objCliente.id + ";";
+            string codigo = "UPDATE cliente set nombres='" + objCliente.nombre + "',apellidos='" + objCliente.apellido + "',correo='" + objCliente.correo + "',telefono='" + objCliente.telefono + "' where idCliente=" + objCliente.id + ";";
 
             return RealizarTransaccion(codigo);
         }

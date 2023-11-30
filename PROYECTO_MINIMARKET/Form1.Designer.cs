@@ -168,15 +168,16 @@
             // registrarToolStripMenuItem4
             // 
             this.registrarToolStripMenuItem4.Name = "registrarToolStripMenuItem4";
-            this.registrarToolStripMenuItem4.Size = new System.Drawing.Size(126, 22);
+            this.registrarToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
             this.registrarToolStripMenuItem4.Text = "Registrar";
             this.registrarToolStripMenuItem4.Click += new System.EventHandler(this.registrarToolStripMenuItem4_Click);
             // 
             // actualizarToolStripMenuItem4
             // 
             this.actualizarToolStripMenuItem4.Name = "actualizarToolStripMenuItem4";
-            this.actualizarToolStripMenuItem4.Size = new System.Drawing.Size(126, 22);
+            this.actualizarToolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
             this.actualizarToolStripMenuItem4.Text = "Actualizar";
+            this.actualizarToolStripMenuItem4.Click += new System.EventHandler(this.actualizarToolStripMenuItem4_Click);
             // 
             // empleadoToolStripMenuItem
             // 
@@ -193,14 +194,14 @@
             // registrarToolStripMenuItem5
             // 
             this.registrarToolStripMenuItem5.Name = "registrarToolStripMenuItem5";
-            this.registrarToolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.registrarToolStripMenuItem5.Size = new System.Drawing.Size(125, 22);
             this.registrarToolStripMenuItem5.Text = "Registrar";
             this.registrarToolStripMenuItem5.Click += new System.EventHandler(this.registrarToolStripMenuItem5_Click);
             // 
             // consultarToolStripMenuItem1
             // 
             this.consultarToolStripMenuItem1.Name = "consultarToolStripMenuItem1";
-            this.consultarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.consultarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.consultarToolStripMenuItem1.Text = "Consultar";
             this.consultarToolStripMenuItem1.Click += new System.EventHandler(this.consultarToolStripMenuItem1_Click);
             // 
@@ -215,7 +216,7 @@
             // registrarVentaToolStripMenuItem
             // 
             this.registrarVentaToolStripMenuItem.Name = "registrarVentaToolStripMenuItem";
-            this.registrarVentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registrarVentaToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.registrarVentaToolStripMenuItem.Text = "Registrar";
             this.registrarVentaToolStripMenuItem.Click += new System.EventHandler(this.registrarVentaToolStripMenuItem_Click);
             // 
