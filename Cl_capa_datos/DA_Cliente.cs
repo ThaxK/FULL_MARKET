@@ -37,6 +37,12 @@ namespace Cl_capa_datos
             return RealizarTransaccion(codigo);
         }
 
+        public static DataTable ConsultarClientePorDocumento(string documento)
+        {
+            string codigo = "select CONCAT(nombres,\" \",apellidos) as nombre, identificacion  from cliente WHERE identificacion='" + documento + "';";
+
+            return ConsultarDatos(codigo);
+        }
         
     }
 }

@@ -23,6 +23,11 @@ namespace CL_capaNegocios
         {
             return DA_Cliente.ActualizarCliente(objCliente);
         }
+
+        public static DataTable ConsultarClientePorDocumento(string documento)
+        {
+            return DA_Cliente.ConsultarClientePorDocumento(documento);
+        }
     }
     
 }

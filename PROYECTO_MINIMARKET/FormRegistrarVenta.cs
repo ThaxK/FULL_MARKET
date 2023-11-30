@@ -73,6 +73,12 @@ namespace PROYECTO_MINIMARKET
 
             //label en numeros enteros
             labelTotal.Text = "0";
+
+            //Crear columna de seleccionar a datagridview3
+            DataGridViewButtonColumn botonSeleccionar = new DataGridViewButtonColumn();
+            botonSeleccionar.Text = "Seleccionar";
+            botonSeleccionar.Name = "Seleccionar";
+            dataGridView3.Columns.Add(botonSeleccionar);
         }
 
         private void buttonCategoria_Click(object sender, EventArgs e)
@@ -157,6 +163,26 @@ namespace PROYECTO_MINIMARKET
         private void buttonConfirmarVenta_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            dt = CN_Cliente.ConsultarClientePorDocumento(textBoxDocumento.Text);
+            dataGridView3.DataSource = dt;
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView3.Columns[e.ColumnIndex].Name == "Seleccionar")
+            {
+
+            }
         }
 
         private void buttonSalirCarritoCompras_Click(object sender, EventArgs e)
