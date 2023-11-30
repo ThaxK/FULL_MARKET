@@ -15,5 +15,14 @@ namespace CL_capaNegocios
         {
             return DA_Cliente.RegistrarClienteDA(objCliente);
         }
+        public static DataTable ConsultarCliente()
+        {
+            return DA_Cliente.ConsultarClienteDA();
+        }
+        public static bool ActualizarCliente(Cliente objCliente)
+        {
+            return DA_Cliente.ActualizarCliente(objCliente);
+        }
     }
+    
 }
