@@ -24,7 +24,18 @@ namespace Cl_capa_datos
 
             return RealizarTransaccion(codigo);
         }
+        public static DataTable ConsultarClienteDA()
+        {
+            String codigo = "Select * from cliente";
 
+            return ConsultarEmpleado(codigo);
+        }
+        public static bool ActualizarCliente(Cliente objCliente)
+        {
+            string codigo = "UPDATE cliente set identificacion='" + objCliente.documento + "',nombres='" + objCliente.nombre + "',apellidos='" + objCliente.apellido + "',correo='" + objCliente.correo + "',telefono='" + objCliente.telefono + "' where idCliente=" + objCliente.id + ";";
+
+            return RealizarTransaccion(codigo);
+        }
 
         
     }
