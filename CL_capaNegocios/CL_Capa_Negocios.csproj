@@ -44,6 +44,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="CN_Categoria.cs" />
     <Compile Include="CN_Cliente.cs" />
+    <Compile Include="CN_DetalleVenta.cs" />
     <Compile Include="CN_Empleado.cs" />
     <Compile Include="CN_FullMarket.cs" />
     <Compile Include="CN_Producto.cs" />
