@@ -153,8 +153,8 @@ namespace PROYECTO_MINIMARKET
         {
             if (dataGridView2.Columns[e.ColumnIndex].Name == "Eliminar")
             {
+                labelTotal.Text = (int.Parse(labelTotal.Text) - int.Parse(CarritoCompras.Rows[e.RowIndex][4].ToString())) + "";
                 CarritoCompras.Rows[e.RowIndex].Delete();
-                labelTotal.Text= (int.Parse(labelTotal.Text) - int.Parse(dataGridView2[5, e.RowIndex].Value.ToString()))+"";
                 dataGridView2.DataSource = CarritoCompras;
             }
         }
@@ -191,8 +191,9 @@ namespace PROYECTO_MINIMARKET
         {
             if (dataGridView3.Columns[e.ColumnIndex].Name == "Seleccionar")
             {
-                documentClient = int.Parse(dataGridView3[1,e.RowIndex].Value.ToString());
-                label7.Text = dataGridView3[0, e.RowIndex].Value.ToString();
+
+                documentClient = int.Parse(dataGridView3[2,e.RowIndex].Value.ToString());
+                label7.Text = dataGridView3[1, e.RowIndex].Value.ToString();
                 groupBox6.Visible = false;
                 groupBox7.Visible = true;
             }
