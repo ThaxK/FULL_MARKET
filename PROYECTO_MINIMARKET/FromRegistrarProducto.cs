@@ -122,5 +122,10 @@ namespace PROYECTO_MINIMARKET
         {
 
         }
+
+        private void FromRegistrarProducto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

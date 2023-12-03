@@ -194,6 +194,7 @@
             this.Name = "FromRegistrarProducto";
             this.Text = "FromRegistrarProducto";
             this.Activated += new System.EventHandler(this.FromRegistrarProducto_Activated);
+            this.Load += new System.EventHandler(this.FromRegistrarProducto_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epRegistroProducto)).EndInit();

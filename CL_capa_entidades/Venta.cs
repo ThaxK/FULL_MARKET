@@ -10,7 +10,7 @@ namespace CL_capa_entidades
     {
         public int idVenta { get; set; }
         public int numeroVenta { get; set; }
-        public string fechaVenta { get; set; }
+        public DateTime fechaVenta { get; set; }
         public int iva  { get; set; }
         public int total { get; set; }
         public int idEmpleado { get; set; }

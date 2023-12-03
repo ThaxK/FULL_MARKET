@@ -43,6 +43,10 @@ namespace PROYECTO_MINIMARKET
             dataGridView2.Columns.Add(botonEliminar);
             dataGridView2.Columns[0].Visible = false;
 
+            DataGridViewButtonColumn botonSeleccionar = new DataGridViewButtonColumn();
+            botonSeleccionar.Text = "Seleccionar";
+            botonSeleccionar.Name = "Seleccionar";
+            dataGridView3.Columns.Add(botonSeleccionar);
 
 
             //Poner invisible el carrito de compras y la ventana de compra
@@ -181,10 +185,6 @@ namespace PROYECTO_MINIMARKET
             DataTable dt = new DataTable();
             dt = CN_Cliente.ConsultarClientePorDocumento(textBoxDocumento.Text);
             dataGridView3.DataSource = dt;
-            DataGridViewButtonColumn botonSeleccionar = new DataGridViewButtonColumn();
-            botonSeleccionar.Text = "Seleccionar";
-            botonSeleccionar.Name = "Seleccionar";
-            dataGridView3.Columns.Add(botonSeleccionar);
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -208,23 +208,23 @@ namespace PROYECTO_MINIMARKET
             //Consultar el ultimo numero de venta
             DataTable dt= new DataTable();
             dt = CN_Venta.ConsultarVenta();
-            
+
 
             Venta objVenta = new Venta();
             objVenta.numeroVenta = dt.Rows.Count+1;
-            objVenta.fechaVenta = DateTime.Now.ToString();
+            objVenta.fechaVenta = DateTime.Now;
             objVenta.iva = 19*int.Parse(labelTotal.Text)/100;
             objVenta.total = int.Parse(labelTotal.Text);
             objVenta.idEmpleado = 1;
             objVenta.identificacionCliente = documentClient;
             if (CN_Venta.RegistrarVenta(objVenta))
             {
-                for (int i = 1; i < dataGridView2.RowCount; i++)
+                for (int i = 0; i < CarritoCompras.Rows.Count; i++)
                 {
                     DetalleVenta objDetalleVenta = new DetalleVenta();
                     objDetalleVenta.numeroVenta = dt.Rows.Count+1;
-                    objDetalleVenta.idProducto = int.Parse(dataGridView2[1, i].Value.ToString());
-                    objDetalleVenta.subtotal = int.Parse(dataGridView2[5, i].Value.ToString());
+                    objDetalleVenta.idProducto = int.Parse(CarritoCompras.Rows[i][0].ToString());
+                    objDetalleVenta.subtotal = int.Parse(CarritoCompras.Rows[i][4].ToString());
                     CN_DetalleVenta.RegistrarDetalleVenta(objDetalleVenta);
                 }
 
@@ -238,8 +238,8 @@ namespace PROYECTO_MINIMARKET
             groupBox7.Visible = false;
             groupBox1.Visible = true;
 
-            dataGridView2.Rows.Clear();
-            dataGridView3.Rows.Clear();
+            dataGridView2.DataSource = null;
+            dataGridView3.DataSource=null;
         }
 
         private void button5_Click(object sender, EventArgs e)
