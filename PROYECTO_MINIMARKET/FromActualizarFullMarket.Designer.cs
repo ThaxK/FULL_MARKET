@@ -28,41 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnRegistrarFullMarket = new System.Windows.Forms.Button();
-            this.text_Correo = new System.Windows.Forms.TextBox();
+            this.txtCorreoFullMarketAc = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.text_Web = new System.Windows.Forms.TextBox();
+            this.txtWebFullMarketAc = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.text_Telefono = new System.Windows.Forms.TextBox();
+            this.txtTelefonoFullMarketAc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.text_Direccion = new System.Windows.Forms.TextBox();
+            this.txtDireccionFullMarketAc = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.text_razonSocial = new System.Windows.Forms.TextBox();
+            this.txtRazonSocialFullMarketAc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.text_registrarNit = new System.Windows.Forms.TextBox();
+            this.txtNitFullMarketAC = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.epAcFullmarket = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epAcFullmarket)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnRegistrarFullMarket);
-            this.groupBox1.Controls.Add(this.text_Correo);
+            this.groupBox1.Controls.Add(this.txtCorreoFullMarketAc);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.text_Web);
+            this.groupBox1.Controls.Add(this.txtWebFullMarketAc);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.text_Telefono);
+            this.groupBox1.Controls.Add(this.txtTelefonoFullMarketAc);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.text_Direccion);
+            this.groupBox1.Controls.Add(this.txtDireccionFullMarketAc);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.text_razonSocial);
+            this.groupBox1.Controls.Add(this.txtRazonSocialFullMarketAc);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.text_registrarNit);
+            this.groupBox1.Controls.Add(this.txtNitFullMarketAC);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 426);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1035, 524);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ActualizarFullMarket";
@@ -71,125 +76,144 @@
             // btnRegistrarFullMarket
             // 
             this.btnRegistrarFullMarket.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btnRegistrarFullMarket.Location = new System.Drawing.Point(540, 281);
+            this.btnRegistrarFullMarket.Location = new System.Drawing.Point(778, 338);
+            this.btnRegistrarFullMarket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegistrarFullMarket.Name = "btnRegistrarFullMarket";
-            this.btnRegistrarFullMarket.Size = new System.Drawing.Size(121, 41);
+            this.btnRegistrarFullMarket.Size = new System.Drawing.Size(161, 50);
             this.btnRegistrarFullMarket.TabIndex = 12;
             this.btnRegistrarFullMarket.Text = "Actualizar";
             this.btnRegistrarFullMarket.UseVisualStyleBackColor = false;
             this.btnRegistrarFullMarket.Click += new System.EventHandler(this.btnRegistrarFullMarket_Click);
             // 
-            // text_Correo
+            // txtCorreoFullMarketAc
             // 
-            this.text_Correo.Location = new System.Drawing.Point(100, 173);
-            this.text_Correo.Name = "text_Correo";
-            this.text_Correo.Size = new System.Drawing.Size(198, 20);
-            this.text_Correo.TabIndex = 11;
+            this.txtCorreoFullMarketAc.Location = new System.Drawing.Point(133, 213);
+            this.txtCorreoFullMarketAc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCorreoFullMarketAc.Name = "txtCorreoFullMarketAc";
+            this.txtCorreoFullMarketAc.Size = new System.Drawing.Size(263, 22);
+            this.txtCorreoFullMarketAc.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 176);
+            this.label5.Location = new System.Drawing.Point(33, 217);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.Size = new System.Drawing.Size(68, 16);
             this.label5.TabIndex = 10;
             this.label5.Text = "CORREO:";
             // 
-            // text_Web
+            // txtWebFullMarketAc
             // 
-            this.text_Web.Location = new System.Drawing.Point(507, 176);
-            this.text_Web.Name = "text_Web";
-            this.text_Web.Size = new System.Drawing.Size(185, 20);
-            this.text_Web.TabIndex = 9;
+            this.txtWebFullMarketAc.Location = new System.Drawing.Point(676, 217);
+            this.txtWebFullMarketAc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtWebFullMarketAc.Name = "txtWebFullMarketAc";
+            this.txtWebFullMarketAc.Size = new System.Drawing.Size(245, 22);
+            this.txtWebFullMarketAc.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(442, 179);
+            this.label6.Location = new System.Drawing.Point(589, 220);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(41, 16);
             this.label6.TabIndex = 8;
             this.label6.Text = "WEB:";
             // 
-            // text_Telefono
+            // txtTelefonoFullMarketAc
             // 
-            this.text_Telefono.Location = new System.Drawing.Point(507, 122);
-            this.text_Telefono.Name = "text_Telefono";
-            this.text_Telefono.Size = new System.Drawing.Size(198, 20);
-            this.text_Telefono.TabIndex = 7;
+            this.txtTelefonoFullMarketAc.Location = new System.Drawing.Point(676, 150);
+            this.txtTelefonoFullMarketAc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefonoFullMarketAc.Name = "txtTelefonoFullMarketAc";
+            this.txtTelefonoFullMarketAc.Size = new System.Drawing.Size(263, 22);
+            this.txtTelefonoFullMarketAc.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(422, 124);
+            this.label3.Location = new System.Drawing.Point(563, 153);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.Size = new System.Drawing.Size(82, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "TELÉFONO:";
             // 
-            // text_Direccion
+            // txtDireccionFullMarketAc
             // 
-            this.text_Direccion.Location = new System.Drawing.Point(100, 122);
-            this.text_Direccion.Name = "text_Direccion";
-            this.text_Direccion.Size = new System.Drawing.Size(185, 20);
-            this.text_Direccion.TabIndex = 5;
+            this.txtDireccionFullMarketAc.Location = new System.Drawing.Point(133, 150);
+            this.txtDireccionFullMarketAc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccionFullMarketAc.Name = "txtDireccionFullMarketAc";
+            this.txtDireccionFullMarketAc.Size = new System.Drawing.Size(245, 22);
+            this.txtDireccionFullMarketAc.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 124);
+            this.label4.Location = new System.Drawing.Point(36, 153);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 13);
+            this.label4.Size = new System.Drawing.Size(83, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "DIRECCION:";
             // 
-            // text_razonSocial
+            // txtRazonSocialFullMarketAc
             // 
-            this.text_razonSocial.Location = new System.Drawing.Point(507, 68);
-            this.text_razonSocial.Name = "text_razonSocial";
-            this.text_razonSocial.Size = new System.Drawing.Size(198, 20);
-            this.text_razonSocial.TabIndex = 3;
-            this.text_razonSocial.TextChanged += new System.EventHandler(this.text_razonSocial_TextChanged);
+            this.txtRazonSocialFullMarketAc.Location = new System.Drawing.Point(676, 84);
+            this.txtRazonSocialFullMarketAc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRazonSocialFullMarketAc.Name = "txtRazonSocialFullMarketAc";
+            this.txtRazonSocialFullMarketAc.Size = new System.Drawing.Size(263, 22);
+            this.txtRazonSocialFullMarketAc.TabIndex = 3;
+            this.txtRazonSocialFullMarketAc.TextChanged += new System.EventHandler(this.text_razonSocial_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(403, 71);
+            this.label2.Location = new System.Drawing.Point(537, 87);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 13);
+            this.label2.Size = new System.Drawing.Size(107, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "RAZON SOCIAL:";
             // 
-            // text_registrarNit
+            // txtNitFullMarketAC
             // 
-            this.text_registrarNit.Enabled = false;
-            this.text_registrarNit.Location = new System.Drawing.Point(100, 68);
-            this.text_registrarNit.Name = "text_registrarNit";
-            this.text_registrarNit.Size = new System.Drawing.Size(185, 20);
-            this.text_registrarNit.TabIndex = 1;
-            this.text_registrarNit.TextChanged += new System.EventHandler(this.text_registrarNit_TextChanged);
+            this.txtNitFullMarketAC.Enabled = false;
+            this.txtNitFullMarketAC.Location = new System.Drawing.Point(133, 84);
+            this.txtNitFullMarketAC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNitFullMarketAC.Name = "txtNitFullMarketAC";
+            this.txtNitFullMarketAC.Size = new System.Drawing.Size(245, 22);
+            this.txtNitFullMarketAC.TabIndex = 1;
+            this.txtNitFullMarketAC.TextChanged += new System.EventHandler(this.text_registrarNit_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 68);
+            this.label1.Location = new System.Drawing.Point(87, 84);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.Size = new System.Drawing.Size(32, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "NIT:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // epAcFullmarket
+            // 
+            this.epAcFullmarket.ContainerControl = this;
+            // 
             // FromActualizarFullMarket
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FromActualizarFullMarket";
             this.Text = "FromActualizarFullMarket";
             this.Load += new System.EventHandler(this.FromRegistrarFullMarket_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epAcFullmarket)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -198,17 +222,18 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox text_razonSocial;
+        private System.Windows.Forms.TextBox txtRazonSocialFullMarketAc;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox text_registrarNit;
-        private System.Windows.Forms.TextBox text_Correo;
+        private System.Windows.Forms.TextBox txtNitFullMarketAC;
+        private System.Windows.Forms.TextBox txtCorreoFullMarketAc;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox text_Web;
+        private System.Windows.Forms.TextBox txtWebFullMarketAc;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox text_Telefono;
+        private System.Windows.Forms.TextBox txtTelefonoFullMarketAc;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox text_Direccion;
+        private System.Windows.Forms.TextBox txtDireccionFullMarketAc;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnRegistrarFullMarket;
+        private System.Windows.Forms.ErrorProvider epAcFullmarket;
     }
 }

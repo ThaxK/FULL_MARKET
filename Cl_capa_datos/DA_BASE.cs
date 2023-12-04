@@ -13,7 +13,7 @@ namespace Cl_capa_datos
     public class DA_BASE
     {
 
-        public static String CadenaConexion="Server=localhost; DATABASE=db_fullmarket; UID=root; PASSWORD=";
+        public static String CadenaConexion="Server=localhost; DATABASE=fullmarket_db; UID=Vyrux; PASSWORD=Pipe201716#";
 
         //sentencias insert,update y delete
         public static bool RealizarTransaccion(string strSQL) {
@@ -23,8 +23,7 @@ namespace Cl_capa_datos
             try
 
             {
-                using (MySqlConnection conn = new MySqlConnection
-                    (CadenaConexion))
+                using (MySqlConnection conn = new MySqlConnection(CadenaConexion))
 
                 {
                     conn.Open();

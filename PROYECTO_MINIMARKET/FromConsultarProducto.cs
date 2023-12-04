@@ -21,8 +21,49 @@ namespace PROYECTO_MINIMARKET
         {
             InitializeComponent();
         }
+        public bool validarFormulario()
+        {
+            Validaciones val = new Validaciones();
+            int bandera = 0;
+            epProductoAc.Clear();
 
-        private void FromConsultarProducto_Load(object sender, EventArgs e)
+            if (!val.SeisDigitos(txtCodigoAc.Text))
+            {
+                epProductoAc.SetError(txtCodigoAc, "Error en el codigo");
+                bandera = 0;
+            }
+            if (!val.CincuentaCaracteres(txtNombreProductoAc.Text))
+            {
+                epProductoAc.SetError(txtNombreProductoAc, "Error en el nombre");
+                bandera = 0;
+            }
+            if (!val.OnceDigitos(txtPrecioAc.Text))
+            {
+                epProductoAc.SetError(txtPrecioAc, "Error en el precio");
+                bandera = 0;
+            }
+            if (!val.DoscientosCaracteres(txtDescripcionAc.Text))
+            {
+                epProductoAc.SetError(txtDescripcionAc, "Error en la descripcion");
+                bandera = 0;
+            }
+            if (!val.OnceDigitos(txtCantidadAc.Text))
+            {
+                epProductoAc.SetError(txtCantidadAc, "Error en la cantidad");
+                bandera = 0;
+            }
+
+            if (bandera == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+            private void FromConsultarProducto_Load(object sender, EventArgs e)
         {
             
 
@@ -61,11 +102,11 @@ namespace PROYECTO_MINIMARKET
                 dataGridView1.Visible = false;
                 groupBox1.Visible = true;
                 id = int.Parse(dataGridView1[1, e.RowIndex].Value.ToString());
-                textBoxCodigo.Text = dataGridView1[2, e.RowIndex].Value.ToString();
-                textBoxNombre.Text = dataGridView1[3, e.RowIndex].Value.ToString();
-                textBoxPrecio.Text = dataGridView1[4, e.RowIndex].Value.ToString()+ dataGridView1[6, e.RowIndex].Value.ToString();
-                richTextBox1.Text = dataGridView1[5, e.RowIndex].Value.ToString();
-                textBoxCantidad.Text = dataGridView1[6, e.RowIndex].Value.ToString();
+                txtCodigoAc.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+                txtNombreProductoAc.Text = dataGridView1[3, e.RowIndex].Value.ToString();
+                txtPrecioAc.Text = dataGridView1[4, e.RowIndex].Value.ToString()+ dataGridView1[6, e.RowIndex].Value.ToString();
+                txtDescripcionAc.Text = dataGridView1[5, e.RowIndex].Value.ToString();
+                txtCantidadAc.Text = dataGridView1[6, e.RowIndex].Value.ToString();
                 for (int i = 0; i < comboBox1.Items.Count; i++)
                 {
                     if (comboBox1.Items[i].ToString() == dataGridView1[7, e.RowIndex].Value.ToString())
@@ -78,25 +119,28 @@ namespace PROYECTO_MINIMARKET
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Producto producto = new Producto();
-            producto.idProducto = id;
-            producto.codigo = textBoxCodigo.Text.ToString().Trim();
-            producto.nombre = textBoxNombre.Text.ToString().Trim();
-            producto.descripcion = richTextBox1.Text.ToString().Trim();
-            producto.stock = textBoxCantidad.Text.ToString().Trim();
-            producto.precio = textBoxPrecio.Text.ToString().Trim();
-            producto.idCategoria = comboBox1.SelectedIndex + 1;
-
-            if (CN_Producto.ActualizarProducto(producto))
+            if (validarFormulario())
             {
-                MessageBox.Show("Actualización exitosa");
-            }
-            else
-            {
-                MessageBox.Show("Error en la actualización");
-            }
+                Producto producto = new Producto();
+                producto.idProducto = id;
+                producto.codigo = txtCodigoAc.Text.ToString().Trim();
+                producto.nombre = txtNombreProductoAc.Text.ToString().Trim();
+                producto.descripcion = txtDescripcionAc.Text.ToString().Trim();
+                producto.stock = txtCantidadAc.Text.ToString().Trim();
+                producto.precio = txtPrecioAc.Text.ToString().Trim();
+                producto.idCategoria = comboBox1.SelectedIndex + 1;
 
-            dataGridView1.Visible = true;
+                if (CN_Producto.ActualizarProducto(producto))
+                {
+                    MessageBox.Show("Actualización exitosa");
+                }
+                else
+                {
+                    MessageBox.Show("Error en la actualización");
+                }
+
+                dataGridView1.Visible = true;
+            }
         }
     }
 }

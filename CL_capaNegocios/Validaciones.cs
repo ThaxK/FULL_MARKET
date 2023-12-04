@@ -9,18 +9,19 @@ namespace CL_capaNegocios
 {
     public class Validaciones
     {
-        Regex regexNombreApellidos = new Regex("^[a-zA-Záéíóú\\s]{0,50}$");
+        Regex regexCiencuentaCaracteres = new Regex("^[a-zA-Záéíóú\\s]{0,50}$");
         Regex regexTelefono = new Regex("^[3][0-9]{9}$");
-        Regex regexDocumento = new Regex("^[0-9]{10,11}$");
         Regex regexCorreo = new Regex("^[a-zA-Z0-9-_]{0,50}[@][a-zA-Z0-9.]{0,50}$");
         Regex regexDireccion = new Regex("^[a-zA-Z0-9.#\\s-]{0,100}$");
-        Regex regexWeb = new Regex("^[a-zA-Z0-9/.]{0,100}$");
-        Regex regexNit = new Regex("^[0-9-]{12}$");
-        Regex regexNumeros = new Regex("^[0-9]{0,7}$");
+        Regex regexWeb = new Regex("^[a-zA-Z0-9/.]{0,200}$");
+        Regex regexNit = new Regex("^[0-9-]{14}$");
+        Regex regexSeisDigitos = new Regex("^1\\d{0, 5}$");
+        Regex regexOnceDigitos = new Regex("^1\\d{0, 10}$");
+        Regex regexDoscientosCaracteres = new Regex("^[a-zA-Záéíóú\\s]{20,200}$");
 
-        public bool NombreApellidos(string palabra)
+        public bool CincuentaCaracteres(string cincuentaCaracteres)
         {
-            if(regexNombreApellidos.Match(palabra).Success) 
+            if(regexCiencuentaCaracteres.Match(cincuentaCaracteres).Success) 
             {
                 return true;
             }
@@ -30,10 +31,9 @@ namespace CL_capaNegocios
             }
 
         }
-
-        public bool Telefono(string palabra)
+        public bool SeisDigitos(string seisDigitos)
         {
-            if (regexTelefono.Match(palabra).Success)
+            if (regexSeisDigitos.Match(seisDigitos).Success)
             {
                 return true;
             }
@@ -41,12 +41,10 @@ namespace CL_capaNegocios
             {
                 return false;
             }
-
         }
-
-        public bool Documento(string palabra)
+        public bool OnceDigitos(string onceDigitos)
         {
-            if (regexDocumento.Match(palabra).Success)
+            if (regexOnceDigitos.Match(onceDigitos).Success)
             {
                 return true;
             }
@@ -54,12 +52,10 @@ namespace CL_capaNegocios
             {
                 return false;
             }
-
         }
-
-        public bool Correo(string palabra)
+        public bool DoscientosCaracteres(string doscientos)
         {
-            if (regexCorreo.Match(palabra).Success)
+            if (regexDoscientosCaracteres.Match(doscientos).Success)
             {
                 return true;
             }
@@ -67,12 +63,10 @@ namespace CL_capaNegocios
             {
                 return false;
             }
-
         }
-
-        public bool Direccion(string palabra)
+        public bool CorreoElectronico(string correo)
         {
-            if (regexDireccion.Match(palabra).Success)
+            if (regexCorreo.Match(correo).Success)
             {
                 return true;
             }
@@ -80,12 +74,10 @@ namespace CL_capaNegocios
             {
                 return false;
             }
-
         }
-
-        public bool Web(string palabra)
+        public bool Direccion(string direccion)
         {
-            if (regexWeb.Match(palabra).Success)
+            if (regexDireccion.Match(direccion).Success)
             {
                 return true;
             }
@@ -93,12 +85,10 @@ namespace CL_capaNegocios
             {
                 return false;
             }
-
         }
-
-        public bool Nit(string palabra)
+        public bool Telefono(string telefono)
         {
-            if (regexNit.Match(palabra).Success)
+            if (regexTelefono.Match(telefono).Success)
             {
                 return true;
             }
@@ -106,12 +96,10 @@ namespace CL_capaNegocios
             {
                 return false;
             }
-
         }
-
-        public bool Numeros(string palabra)
+        public bool Nit(string nit)
         {
-            if (regexNumeros.Match(palabra).Success)
+            if (regexNit.Match(nit).Success)
             {
                 return true;
             }
@@ -119,7 +107,17 @@ namespace CL_capaNegocios
             {
                 return false;
             }
-
+        }
+        public bool Web(string web)
+        {
+            if (regexWeb.Match(web).Success)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

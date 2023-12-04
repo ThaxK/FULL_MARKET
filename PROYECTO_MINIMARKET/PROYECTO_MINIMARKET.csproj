@@ -70,18 +70,6 @@
     <Compile Include="FromActualizarCliente.Designer.cs">
       <DependentUpon>FromActualizarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FromActualizarProduccto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FromActualizarProduccto.Designer.cs">
-      <DependentUpon>FromActualizarProduccto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FromActualizarProveedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FromActualizarProveedor.Designer.cs">
-      <DependentUpon>FromActualizarProveedor.cs</DependentUpon>
-    </Compile>
     <Compile Include="FromConsultarEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,12 +143,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FromActualizarCliente.resx">
       <DependentUpon>FromActualizarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FromActualizarProduccto.resx">
-      <DependentUpon>FromActualizarProduccto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FromActualizarProveedor.resx">
-      <DependentUpon>FromActualizarProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FromConsultarEmpleado.resx">
       <DependentUpon>FromConsultarEmpleado.cs</DependentUpon>

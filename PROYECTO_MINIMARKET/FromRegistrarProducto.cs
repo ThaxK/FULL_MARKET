@@ -16,11 +16,7 @@ namespace PROYECTO_MINIMARKET
 {
     public partial class FromRegistrarProducto : Form
     {
-        Regex regexNombre = new Regex("[a-zA-Záéíóú\\s]{5,25}$");
-        Regex regexCantidad = new Regex("[0-9\\d]{1,10}$");
-        Regex regexCodigo = new Regex("[0-9\\d]{1,10}$");
-        Regex regexPrecio = new Regex("[0-9\\d]{1,10}$");
-        Regex regexDescripcion = new Regex("[a-zA-Záéíóú\\s]{5,100}$");
+        
 
 
         public FromRegistrarProducto()
@@ -33,16 +29,16 @@ namespace PROYECTO_MINIMARKET
             if (validarFormulario())
             {
                 Producto producto = new Producto();
-                producto.codigo = textBox1.Text.ToString().Trim();
-                producto.nombre = textBox4.Text.ToString().Trim();
-                producto.descripcion = richTextBox1.Text.ToString().Trim();
-                producto.stock = text_razonSocial.Text.ToString().Trim();
-                producto.precio = textBox2.Text.ToString().Trim();
-                producto.idCategoria = comboBox1.SelectedIndex + 1;
+                producto.codigo = txtCodigoProductoR.Text.ToString().Trim();
+                producto.nombre = txtNombreProductoR.Text.ToString().Trim();
+                producto.descripcion = rtxtDescripcionProductoR.Text.ToString().Trim();
+                producto.stock = txtCantidadProductoR.Text.ToString().Trim();
+                producto.precio = txtPrecioProductoR.Text.ToString().Trim();
+                producto.idCategoria = cbCategoriaProductoR.SelectedIndex + 1;
 
                 if (CN_Producto.InsertarProducto(producto))
                 {
-                    MessageBox.Show("Registro exitoso");
+                    MessageBox.Show("Producto registrado correctamente");
                 }
                 else
                 {
@@ -62,9 +58,9 @@ namespace PROYECTO_MINIMARKET
             dt = CN_Categoria.ConsultarCategoria();
             for(int i=0; i<dt.Rows.Count; i++)
             {
-                comboBox1.Items.Add(dt.Rows[i][1].ToString());
+                cbCategoriaProductoR.Items.Add(dt.Rows[i][1].ToString());
             }
-            comboBox1.SelectedIndex = 0;
+            cbCategoriaProductoR.SelectedIndex = 0;
         }
 
         public bool validarFormulario()
@@ -75,34 +71,29 @@ namespace PROYECTO_MINIMARKET
 
             epRegistroProducto.Clear();
 
-            if (!val.NombreApellidos(textBox4.Text)){
-
-                epRegistroProducto.SetError(textBox4, "Error en el nombre");
+            if (!val.CincuentaCaracteres(txtNombreProductoR.Text))
+            {
+                epRegistroProducto.SetError(txtNombreProductoR, "Error en el nombre");
                 bandera = 0;
             }
-
-            if (!val.Numeros(text_razonSocial.Text))
+            if (!val.SeisDigitos(txtCodigoProductoR.Text))
             {
-
-                epRegistroProducto.SetError(text_razonSocial, "Error en la cantidad");
+                epRegistroProducto.SetError(txtCodigoProductoR, "Error en el codigo");
                 bandera = 0;
-
             }
-
-            if (!val.Numeros(textBox1.Text))
+            if (!val.OnceDigitos(txtCantidadProductoR.Text))
             {
-
-                epRegistroProducto.SetError(textBox1, "Error en el codigo");
+                epRegistroProducto.SetError(txtCantidadProductoR, "Error en la cantidad ");
                 bandera = 0;
-
             }
-
-            if (!val.Numeros(textBox2.Text))
+            if (!val.OnceDigitos(txtPrecioProductoR.Text))
             {
-
-                epRegistroProducto.SetError(textBox2, "Error en el precio");
+                epRegistroProducto.SetError(txtPrecioProductoR, "Error en el precio");
                 bandera = 0;
-
+            }if (!val.DoscientosCaracteres(rtxtDescripcionProductoR.Text))
+            {
+                epRegistroProducto.SetError(rtxtDescripcionProductoR, "Error en la descripcion");
+                bandera = 0;
             }
 
             if (bandera == 1) 

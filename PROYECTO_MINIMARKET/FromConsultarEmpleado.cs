@@ -19,8 +19,57 @@ namespace PROYECTO_MINIMARKET
         {
             InitializeComponent();
         }
+        public bool validarFormulario()
+        {
+            Validaciones val = new Validaciones();
+            int bandera = 0;
+            epEmpleadoAc.Clear();
 
-        private void FromConsultarEmpleado_Load(object sender, EventArgs e)
+            if (!val.OnceDigitos(txtDocumentoAc.Text))
+            {
+                epEmpleadoAc.SetError(txtDocumentoAc, "Error en el documento");
+                bandera = 0;
+            }
+            if (!val.CincuentaCaracteres(txtNombreAc.Text))
+            {
+                epEmpleadoAc.SetError(txtNombreAc, "Error en el Nombre");
+                bandera = 0;
+            }
+            if (!val.CincuentaCaracteres(txtApellidoAc.Text))
+            {
+                epEmpleadoAc.SetError(txtApellidoAc, "Error en el Apellido");
+                bandera = 0;
+            }
+            if (!val.CorreoElectronico(txtCorreoAc.Text))
+            {
+                epEmpleadoAc.SetError(txtCorreoAc, "Error en el Apellido");
+                bandera = 0;
+            }if (!val.CincuentaCaracteres(txtContrasenaAc.Text))
+            {
+                epEmpleadoAc.SetError(txtContrasenaAc, "Error en la contraseña");
+                bandera = 0;
+            }if (!val.CincuentaCaracteres(txtConfirmarContrasenaAc.Text))
+            {
+                epEmpleadoAc.SetError(txtConfirmarContrasenaAc, "Error en la confirmacion");
+                bandera = 0;
+            }
+            if (!val.Telefono(txtTelefonoAc.Text))
+            {
+                epEmpleadoAc.SetError(txtTelefonoAc, "Error en la telefono");
+                bandera = 0;
+            }
+
+            if (bandera == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+            private void FromConsultarEmpleado_Load(object sender, EventArgs e)
         {
 
             DataTable dt = new DataTable();
@@ -34,7 +83,7 @@ namespace PROYECTO_MINIMARKET
             dataGridView1.Columns[6].Visible = false;
 
             CBoxTipoDocumento.Enabled = false;
-            NoDocumento.Enabled = false;
+            txtDocumentoAc.Enabled = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -45,12 +94,12 @@ namespace PROYECTO_MINIMARKET
                 dataGridView1.Visible = false;
 
                 id=int.Parse(dataGridView1[1, e.RowIndex].Value.ToString());
-                NoDocumento.Text = dataGridView1[2, e.RowIndex].Value.ToString();
-                Nombre.Text= dataGridView1[4, e.RowIndex].Value.ToString();
-                Apellido.Text= dataGridView1[5, e.RowIndex].Value.ToString();
-                Correo.Text = dataGridView1[6, e.RowIndex].Value.ToString();
-                Telefono.Text = dataGridView1[8, e.RowIndex].Value.ToString();
-                Contraseña.Text= dataGridView1[9, e.RowIndex].Value.ToString();
+                txtDocumentoAc.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+                txtNombreAc.Text= dataGridView1[4, e.RowIndex].Value.ToString();
+                txtApellidoAc.Text= dataGridView1[5, e.RowIndex].Value.ToString();
+                txtCorreoAc.Text = dataGridView1[6, e.RowIndex].Value.ToString();
+                txtTelefonoAc.Text = dataGridView1[8, e.RowIndex].Value.ToString();
+                txtContrasenaAc.Text= dataGridView1[9, e.RowIndex].Value.ToString();
                 switch(dataGridView1[3, e.RowIndex].Value.ToString())
                 {
                     case "CC":
@@ -77,42 +126,47 @@ namespace PROYECTO_MINIMARKET
         }
 
         private void btnRegsitrarCliente_Click(object sender, EventArgs e)
+
         {
-            if(string.IsNullOrEmpty(Nombre.Text)&& string.IsNullOrEmpty(Apellido.Text)&& string.IsNullOrEmpty(Correo.Text)&& string.IsNullOrEmpty(Telefono.Text)&& string.IsNullOrEmpty(Contraseña.Text)&& string.IsNullOrEmpty(textBox1.Text))
+
+            if (validarFormulario())
             {
-                MessageBox.Show("Los campos deben estar llenos");
-            }
-            else
-            {
-                if (Contraseña.Text == textBox1.Text)
+                if (string.IsNullOrEmpty(txtNombreAc.Text)&& string.IsNullOrEmpty(txtApellidoAc.Text)&& string.IsNullOrEmpty(txtCorreoAc.Text)&& string.IsNullOrEmpty(txtTelefonoAc.Text)&& string.IsNullOrEmpty(txtContrasenaAc.Text)&& string.IsNullOrEmpty(txtConfirmarContrasenaAc.Text))
                 {
-                    Empleado objEmpleado = new Empleado();
-                    objEmpleado.identificacion = NoDocumento.Text;
-                    objEmpleado.nombres = Nombre.Text;
-                    objEmpleado.apellidos = Apellido.Text;
-                    objEmpleado.correo = Correo.Text;
-                    objEmpleado.clave = Contraseña.Text;
-                    objEmpleado.telefono = Telefono.Text;
-                    objEmpleado.idEmpleado = id;
-
-                    if (CN_Empleado.ActualizarEmpleado(objEmpleado))
-                    {
-                        MessageBox.Show("Actualización exitosa");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error en la actualización");
-                    }
-
-                    textBox1.Text = "";
-                    dataGridView1.Visible = true;
+                    MessageBox.Show("Los campos deben estar llenos");
                 }
                 else
                 {
-                    MessageBox.Show("Las contraseñas deben coincidir");
+                    if (txtContrasenaAc.Text == txtConfirmarContrasenaAc.Text)
+                    {
+                        Empleado objEmpleado = new Empleado();
+                        objEmpleado.identificacion = txtDocumentoAc.Text;
+                        objEmpleado.nombres = txtNombreAc.Text;
+                        objEmpleado.apellidos = txtApellidoAc.Text;
+                        objEmpleado.correo = txtCorreoAc.Text;
+                        objEmpleado.clave = txtContrasenaAc.Text;
+                        objEmpleado.telefono = txtTelefonoAc.Text;
+                        objEmpleado.idEmpleado = id;
+
+                        if (CN_Empleado.ActualizarEmpleado(objEmpleado))
+                        {
+                            MessageBox.Show("Actualización exitosa");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error en la actualización");
+                        }
+
+                        txtConfirmarContrasenaAc.Text = "";
+                        dataGridView1.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Las contraseñas deben coincidir");
+                    }
                 }
+
             }
-            
         }
 
         private void button1_Click(object sender, EventArgs e)

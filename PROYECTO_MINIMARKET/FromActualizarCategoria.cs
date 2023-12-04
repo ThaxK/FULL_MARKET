@@ -18,17 +18,42 @@ namespace PROYECTO_MINIMARKET
         {
             InitializeComponent();
         }
+        public bool validarFormulario()
+        {
+            Validaciones val = new Validaciones();
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            int bandera = 1;
+
+            epActualizarCategoria.Clear();
+
+            if (!val.CincuentaCaracteres(txtNombreCategoriaAc.Text))
+            {
+                epActualizarCategoria.SetError(txtNombreCategoriaAc, "Error en el nombre");
+                bandera = 0;
+            }if (!val.CincuentaCaracteres(rtxtDescripcionCategoriaAc.Text))
+            {
+                epActualizarCategoria.SetError(rtxtDescripcionCategoriaAc, "Error en el nombre");
+                bandera = 0;
+            }
+            if (bandera == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+            private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.Columns[e.ColumnIndex].Name=="Actualizar")
             {
                 dataGridView1.Visible = false;
                 groupBox2.Visible = true;
 
-                textBox4.Text = dataGridView1[1, e.RowIndex].Value.ToString();
-                textBoxNombre.Text = dataGridView1[2, e.RowIndex].Value.ToString();
-                richTextBox1.Text = dataGridView1[3,e.RowIndex].Value.ToString();
+                txtIdCategoriaAc.Text = dataGridView1[1, e.RowIndex].Value.ToString();
+                txtNombreCategoriaAc.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+                rtxtDescripcionCategoriaAc.Text = dataGridView1[3,e.RowIndex].Value.ToString();
             }
         }
 
@@ -48,22 +73,25 @@ namespace PROYECTO_MINIMARKET
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Categoria objCategoria = new Categoria();
-            objCategoria.id = int.Parse(textBox4.Text.ToString());
-            objCategoria.nombre = textBoxNombre.Text.ToString();
-            objCategoria.descripcion = richTextBox1.Text.ToString();
-
-            if (CN_Categoria.ActualizarCategoria(objCategoria))
+            if (validarFormulario())
             {
-                MessageBox.Show("Actualización exitosa");
-            }
-            else
-            {
-                MessageBox.Show("Error en la actualización");
-            }
+                Categoria objCategoria = new Categoria();
+                objCategoria.id = int.Parse(txtIdCategoriaAc.Text.ToString());
+                objCategoria.nombre = txtNombreCategoriaAc.Text.ToString();
+                objCategoria.descripcion = rtxtDescripcionCategoriaAc.Text.ToString();
 
-            dataGridView1.Visible = true;
-            groupBox2.Visible = false;
+                if (CN_Categoria.ActualizarCategoria(objCategoria))
+                {
+                    MessageBox.Show("La categoria se actualizó correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Error en la actualización");
+                }
+
+                dataGridView1.Visible = true;
+                groupBox2.Visible = false;
+            }
         }
 
         private void FromActualizarCategoria_VisibleChanged(object sender, EventArgs e)
@@ -78,6 +106,11 @@ namespace PROYECTO_MINIMARKET
             DataTable dt = new DataTable();
             dt = CN_Categoria.ConsultarCategoria();
             dataGridView1.DataSource = dt;
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

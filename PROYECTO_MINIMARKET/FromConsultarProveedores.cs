@@ -18,8 +18,53 @@ namespace PROYECTO_MINIMARKET
         {
             InitializeComponent();
         }
+        public bool validarFormulario()
+        {
+            Validaciones val = new Validaciones();
+            int bandera = 0;
+            epAcProveedor.Clear();
+            if (!val.Nit(txtNit.Text))
+            {
+                epAcProveedor.SetError(txtNit, "Error en el NIT");
+                bandera = 0;
+            }
+            if (!val.CincuentaCaracteres(txtRazonSocial.Text))
+            {
+                epAcProveedor.SetError(txtRazonSocial, "Error en la razon social");
+                bandera = 0;
+            }
+            if (!val.Direccion(txtDireccion.Text))
+            {
+                epAcProveedor.SetError(txtDireccion, "Error en la direccion");
+                bandera = 0;
+            }
+            if (!val.Telefono(txtTelefono.Text))
+            {
+                epAcProveedor.SetError(txtTelefono, "Error en el telefono");
+                bandera = 0;
+            }
+            if (!val.CorreoElectronico(txtCorreo.Text))
+            {
+                epAcProveedor.SetError(txtCorreo, "Error en el correo");
+                bandera = 0;
+            }
+            if (!val.CincuentaCaracteres(txtCiudad.Text))
+            {
+                epAcProveedor.SetError(txtCiudad, "Error en la ciudad");
+                bandera = 0;
+            }
 
-        private void FromConsultarProveedores_Load(object sender, EventArgs e)
+            if (bandera == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+            private void FromConsultarProveedores_Load(object sender, EventArgs e)
         {
             groupBox1.Visible = false;
             DataTable dt = new DataTable();
@@ -45,42 +90,49 @@ namespace PROYECTO_MINIMARKET
             {
                 dataGridView1.Visible= false;
                 groupBox1.Visible = true;
-                textBox4.Text = dataGridView1[ 2,e.RowIndex].Value.ToString();
-                text_razonSocial.Text = dataGridView1[3, e.RowIndex].Value.ToString();
-                text_direccion.Text = dataGridView1[4, e.RowIndex].Value.ToString();
-                text_telefono.Text = dataGridView1[5, e.RowIndex].Value.ToString();
-                text_correo.Text = dataGridView1[6, e.RowIndex].Value.ToString();
-                text_ciudad.Text = dataGridView1[7, e.RowIndex].Value.ToString();
+                txtNit.Text = dataGridView1[ 2,e.RowIndex].Value.ToString();
+                txtRazonSocial.Text = dataGridView1[3, e.RowIndex].Value.ToString();
+                txtDireccion.Text = dataGridView1[4, e.RowIndex].Value.ToString();
+                txtTelefono.Text = dataGridView1[5, e.RowIndex].Value.ToString();
+                txtCorreo.Text = dataGridView1[6, e.RowIndex].Value.ToString();
+                txtCiudad.Text = dataGridView1[7, e.RowIndex].Value.ToString();
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
+
+
         {
-            if (text_ciudad.Text == string.Empty||text_razonSocial.Text==string.Empty||text_correo.Text==string.Empty||text_telefono.Text==string.Empty||text_direccion.Text==string.Empty)
+
+            if (validarFormulario())
             {
-                MessageBox.Show("Los campos deben estar llenos");
-            }
-            else
-            {
-                Proveedor objProveedor = new Proveedor();
-                objProveedor.idProveedor = int.Parse(dataGridView1.CurrentRow.Cells[1].Value.ToString());
-                objProveedor.nit = textBox4.Text.Trim();
-                objProveedor.razonSocial = text_razonSocial.Text.Trim();
-                objProveedor.telefono = text_telefono.Text.Trim();
-                objProveedor.ciudad = text_ciudad.Text.Trim();
-                objProveedor.direccion = text_direccion.Text.Trim();
-                objProveedor.correo = text_correo.Text.Trim();
-                if (CN_Proveedores.ActualizarProveedores(objProveedor))
+                if (txtCiudad.Text == string.Empty||txtRazonSocial.Text==string.Empty||txtCorreo.Text==string.Empty||txtTelefono.Text==string.Empty||txtDireccion.Text==string.Empty)
                 {
-                    MessageBox.Show("Se actualizaron los datos correctamente");
-                    dataGridView1.Visible=true;
-                    groupBox1.Visible = false;
+                    MessageBox.Show("Los campos deben estar llenos");
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo actualizar los datos");
+                    Proveedor objProveedor = new Proveedor();
+                    objProveedor.idProveedor = int.Parse(dataGridView1.CurrentRow.Cells[1].Value.ToString());
+                    objProveedor.nit = txtNit.Text.Trim();
+                    objProveedor.razonSocial = txtRazonSocial.Text.Trim();
+                    objProveedor.telefono = txtTelefono.Text.Trim();
+                    objProveedor.ciudad = txtCiudad.Text.Trim();
+                    objProveedor.direccion = txtDireccion.Text.Trim();
+                    objProveedor.correo = txtCorreo.Text.Trim();
+                    if (CN_Proveedores.ActualizarProveedores(objProveedor))
+                    {
+                        MessageBox.Show("Se actualizaron los datos correctamente");
+                        dataGridView1.Visible=true;
+                        groupBox1.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo actualizar los datos");
+                    }
                 }
             }
+
         }
 
         private void dataGridView1_VisibleChanged(object sender, EventArgs e)

@@ -18,22 +18,55 @@ namespace PROYECTO_MINIMARKET
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public bool validarFormulario()
         {
-            Categoria categoria = new Categoria();
-
-            categoria.nombre = textBoxNombre.Text.Trim();
-            categoria.descripcion = textBox4.Text.Trim();
-
-            if (CN_Categoria.InsertarCategoria(categoria))
+            Validaciones val = new Validaciones();
+            int bandera = 0;
+            epCategoriaR.Clear();
+            if (!val.CincuentaCaracteres(textBoxNombre.Text))
             {
-                MessageBox.Show("Registro Exitoso");
+                epCategoriaR.SetError(textBoxNombre, "Error en el Nombre");
+                bandera = 0;
+            }
+            if (!val.CincuentaCaracteres(textBoxDescripcion.Text))
+            {
+                epCategoriaR.SetError(textBoxDescripcion, "Error en la descripcion");
+                bandera = 0;
+            }
+            if (bandera == 1)
+            {
+                return true;
             }
             else
             {
-                MessageBox.Show("Registro Erroneo");
+                return false;
             }
+        }
+
+            private void button1_Click(object sender, EventArgs e)
+        {
+            if (validarFormulario())
+            {
+                Categoria categoria = new Categoria();
+
+                categoria.nombre = textBoxNombre.Text.Trim();
+                categoria.descripcion = textBoxDescripcion.Text.Trim();
+
+                if (CN_Categoria.InsertarCategoria(categoria))
+                {
+                    MessageBox.Show("Registro Exitoso");
+                }
+                else
+                {
+                    MessageBox.Show("Registro Erroneo");
+                }
+            }
+
+        }
+
+        private void FromRegistrarCategoria_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
