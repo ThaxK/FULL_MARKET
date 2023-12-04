@@ -120,17 +120,6 @@ namespace CL_capaNegocios
                 return false;
             }
 
-        }public bool Numeross(string palabra)
-        {
-            if (regexNumeros.Match(palabra).Success)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
         }
     }
 }
